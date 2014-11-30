@@ -1,0 +1,61 @@
+/*#div_logo{height: 50px; background-color: #595959}*/
+#cad-produto{
+    margin: auto;
+    width: 900px;
+    
+}
+#conteudo{
+    padding: 0px 8px
+}
+#login-dialog{
+    width: 290px;   
+    margin: auto; 
+    margin-top: 150px;
+}
+#logo{
+    height: 25px ;
+    padding: 3px 20px
+}
+.campo{
+    background-color: #006dcc;;
+}
+.grid-login{ 
+    width: 290px;
+    height: 150px;
+    background-color: #ccc; 
+    border-radius: 8px;    
+    margin-top: 8px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px #0081c2;
+        
+}
+.label-media{
+    
+}
+.rotulo{
+    width: 200px;
+    background-color: #d14;
+    color: #ffffff;
+    font-size: x-large;
+}
+.ui-panelgrid td{
+    height: 34px;
+}
+footer{padding: 0px 8px;
+       margin-bottom: 10px;
+       background-color: #0081c2;
+       height: 40px
+}
+h1{
+   color: #0081c2;
+   
+}
+header{
+    padding: 5px 0px;
+    margin-bottom: 20px;
+    height: 30px;
+    background-color: #545454;
+    color: #fff; 
+    box-shadow: 0px 2px 2px #ccc
+}
+

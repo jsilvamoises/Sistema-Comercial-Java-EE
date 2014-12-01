@@ -11,12 +11,18 @@
         <h:outputStylesheet name="./css/bootstrap-responsive.min.css"/>
         <h:outputStylesheet name="./css/bootstrap.min.css"/>-->
         <h:outputStylesheet name="./css/sistema.css"/>
+        <h:outputScript  name="./js/jquery.maskMoney.min.js"/>
+        
     </h:head>
     
     <h:body>
         <p:ajaxStatus styleClass="ajax-status">
             <f:facet name="start">
-                <h:graphicImage library="img"/>
+                <h:graphicImage library="img/gifanimado" name="loading.gif"/>
+            </f:facet>
+            
+            <f:facet name="complete">
+                <h:outputText value=""/>
             </f:facet>
             
         </p:ajaxStatus>
@@ -36,6 +42,16 @@
             Moisés Juvenal da Silva - Sistema de controle de estoque @2014
             <a href="#" target="_blank">Moises.Com</a>
         </footer>
+        
+        <script>
+            function configurarMoeda(){
+                $(".moeda").maskMoney({decimal:",",thousands:".",allowzero: true});
+            }
+            $(document).ready(function(){
+                configurarMoeda();
+            });
+        </script>
+            
         
     </h:body>
 

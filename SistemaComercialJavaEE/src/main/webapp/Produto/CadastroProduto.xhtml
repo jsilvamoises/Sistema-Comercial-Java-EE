@@ -3,51 +3,52 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="../template/LayoutPadrao.xhtml"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="titulo">Cadastro de Produto</ui:define>
 
     <ui:define name="corpo">
-        <div id="cad-produto">
-            <h1>Cadastro de Produto</h1>
-            <p:toolbar>
-                <p:toolbarGroup>
-                    <p:button value="Novo" outcome="CadastroProduto"/>
-                    <p:commandButton value="Salvar" id="prod-salvar"/>
-                </p:toolbarGroup>
+        <h:form>
+            <div id="cad-produto">
+                <h1>Cadastro de Produto</h1>
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:button value="Novo" outcome="CadastroProduto"/>
+                        <p:commandButton value="Salvar" id="prod-salvar"/>
+                    </p:toolbarGroup>
 
-                <p:toolbarGroup align="right">
-                    <p:button value="Pesquisar"/>
-                </p:toolbarGroup>
-                oi              
-            </p:toolbar>
+                    <p:toolbarGroup align="right">
+                        <p:button value="Pesquisar" outcome="ConsultaProduto"/>
+                    </p:toolbarGroup>                             
+                </p:toolbar>
 
 
-            <p:panelGrid columns="2" id="painel-cad-prod" style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
-                <p:outputLabel value="SKU" for="sku" />
-                <p:inputText id="sku" size="20" maxlength="20" class="label-media"/>
-                
-                <p:outputLabel value="Nome" for="nome" />
-                <p:inputText id="nome" size="60" maxlength="80"/>
-                
-                <p:outputLabel value="Categoria" for="categoria" />
-                <p:selectOneMenu id="categoria">
-                    <f:selectItem itemLabel="Selecione a categoria"/>
-                </p:selectOneMenu>
-                
-                <p:outputLabel value="Sub Categoria" for="sub-categoria" />
-                <p:selectOneMenu id="sub-categoria">
-                    <f:selectItem itemLabel="Selecione a subcategoria"/>
-                </p:selectOneMenu>
-                
-                <p:outputLabel value="Valor Unitário" for="vlr-unitario" />
-                <p:inputText id="vlr-unitario" size="20" maxlength="80"/>
-                
-                <p:outputLabel value="Quant. Estoque" for="qtd-estoque" />
-                <p:inputText id="qtd-estoque" size="20" maxlength="80"/>
-            </p:panelGrid>
-        </div>
+                <p:panelGrid columns="2" id="painel-cad-prod" style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
+                    <p:outputLabel value="SKU" for="sku" />
+                    <p:inputText id="sku" size="20" maxlength="20" class="label-media"/>
 
+                    <p:outputLabel value="Nome" for="nome" />
+                    <p:inputText id="nome" size="60" maxlength="80"/>
+
+                    <p:outputLabel value="Categoria" for="categoria" />
+                    <p:selectOneMenu id="categoria" >
+                        <f:selectItem itemLabel="Selecione a categoria" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Sub Categoria" for="sub-categoria" />
+                    <p:selectOneMenu id="sub-categoria">
+                        <f:selectItem itemLabel="Selecione a subcategoria"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Valor Unitário" for="vlr-unitario" />
+                    <p:inputText id="vlr-unitario" size="20" maxlength="80" styleClass="moeda" />
+
+                    <p:outputLabel value="Quant. Estoque" for="qtd-estoque" />
+                    <p:inputText id="qtd-estoque" size="20" maxlength="80"/>
+                </p:panelGrid>
+            </div>
+        </h:form>
     </ui:define>
 
 </ui:composition>

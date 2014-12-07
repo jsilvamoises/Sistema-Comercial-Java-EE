@@ -28,8 +28,11 @@
         </p:ajaxStatus>
         <header>
             <div id="div_logo">
+               
                 <h:link>
-                    <h:graphicImage library="img/logo" name="logo_polishop.jpg" id="logo"/>
+                     <ui:include src="../template/menu/Menu.xhtml"/>
+                    <h:graphicImage library="img/logo" name="logo_polishop.jpg" id="logo" style="float: left; padding-top: 10px"/>
+                    
                 </h:link>                    
             </div>
         </header>
@@ -38,6 +41,7 @@
             <ui:insert name="corpo"/>
         </div>
         <p:separator style="margin-top: 20px"/>
+        <ui:include src="../template/menu/Dock.xhtml"/>
         <footer>
             Moisés Juvenal da Silva - Sistema de controle de estoque @2014
             <a href="#" target="_blank">Moises.Com</a>

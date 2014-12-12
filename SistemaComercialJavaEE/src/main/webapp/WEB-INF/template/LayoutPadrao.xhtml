@@ -6,57 +6,120 @@
     <h:head>
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
         <title><ui:insert name="titulo">Sistema de Pedidos</ui:insert></title>
-<!--        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
-        <h:outputStylesheet name="./css/bootstrap-responsive.min.css"/>
-        <h:outputStylesheet name="./css/bootstrap.min.css"/>-->
+        <!--        <h:outputStylesheet name="./css/default.css"/>
+                <h:outputStylesheet name="./css/cssLayout.css"/>
+                <h:outputStylesheet name="./css/bootstrap-responsive.min.css"/>
+                <h:outputStylesheet name="./css/bootstrap.min.css"/>-->
         <h:outputStylesheet name="./css/sistema.css"/>
         <h:outputScript  name="./js/jquery.maskMoney.min.js"/>
-        
+
     </h:head>
-    
+
     <h:body>
         <p:ajaxStatus styleClass="ajax-status">
             <f:facet name="start">
                 <h:graphicImage library="img/gifanimado" name="loading.gif"/>
             </f:facet>
-            
+
             <f:facet name="complete">
                 <h:outputText value=""/>
             </f:facet>
-            
+
         </p:ajaxStatus>
+
         <header>
-            <div id="div_logo">
-               
-                <h:link>
-                     <ui:include src="../template/menu/Menu.xhtml"/>
-                    <h:graphicImage library="img/logo" name="logo_polishop.jpg" id="logo" style="float: left; padding-top: 10px"/>
-                    
-                </h:link>                    
+
+            <div class="ui-grid ui-grid-responsive">
+                <!--LOGOMARCA DO SISTEMA-->
+                <div id="div_logo" class="ui-grid-col-3">
+
+                    <h:link outcome="/Home">
+                        <!--<ui:include src="../template/menu/Menu.xhtml"/>-->
+                        <h:graphicImage library="img/logo" name="logo_polishop.jpg" id="logo" style="float: left; padding-top: 10px"/>
+
+                    </h:link>                    
+                </div>
+
+                <!--USUARIO LOGADO-->
+                <div id="usuario-logado" class="ui-grid-col-2">
+                    <span style="float: left; height: 30px;line-height: 30px;margin-right: 60px">Olá Usuário!</span> 
+                </div>
+
+                <!--MENU DO SISTEMA-->
+                <div class="ui-grid-col-7" >
+
+
+                    <h:form style="display: inline-block" id="mn">
+                        <p:menubar styleClass="menu-sistema">
+                            <p:submenu label="Cadastros" icon="ui-icon-circle-triangle-s">                            
+                                <p:menuitem value="Clientes"/>
+                                <p:menuitem value="Usuarios"/>
+                                <p:separator/>
+                                <p:menuitem value="Produtos" outcome="/Produto/ConsultaProduto"/>                            
+                                <p:menuitem value="Categorias"/>
+                                <p:menuitem value="Subcategorias"/>
+                            </p:submenu>
+
+                            <p:submenu label="Pedidos">
+                                <p:menuitem value="Novo Pedido" outcome="/Pedido/CadastroPedido"/>
+                                <p:menuitem value="Consulta Pedido" outcome="/Pedido/ConsultaPedido"/>
+                            </p:submenu>
+
+                            <p:submenu label="Operacional">
+                                <p:menuitem value="Conferencia" outcome="/Conferencia/Conferir"/>
+
+                            </p:submenu>
+
+                            <p:menuitem value="Sair"/>  
+                        </p:menubar>
+                        
+                       
+                    </h:form>
+                </div>
+
+
+
+
+
+
             </div>
+            <!--       // <div style="clear: both"></div>  limpa formatação-->
         </header>
-        
-        <div id="conteudo">
-            <ui:insert name="corpo"/>
-        </div>
-        <p:separator style="margin-top: 20px"/>
+          <!--MENU DO RODAPE-->
+       
         <ui:include src="../template/menu/Dock.xhtml"/>
-        <footer>
-            Moisés Juvenal da Silva - Sistema de controle de estoque @2014
-            <a href="#" target="_blank">Moises.Com</a>
-        </footer>
+        <div id="area-do-formulario" class="ui-grid ui-grid-responsive">
+            <!--CONTEUDO DO SISTEMA-->
+            <div id="conteudo" class="ui-grid-col-12">
+                <ui:insert name="corpo"/>
+            </div>
+             <p:separator style="margin-top: 20px"/>
+            <div id="rodape" class="ui-grid-col-12">
+                <!--RODAPE DOS SISTEMA-->
+
+                Moisés Juvenal da Silva - Sistema de controle de estoque @2014
+                <a href="#" target="_blank">Moises.Com</a>
+
+            </div>
+        </div>
+
         
+
+       
+
+
+
+
         <script>
-            function configurarMoeda(){
-                $(".moeda").maskMoney({decimal:",",thousands:".",allowzero: true});
+            function configurarMoeda() {
+                $(".moeda").maskMoney({decimal: ",", thousands: ".", allowzero: true});
             }
-            $(document).ready(function(){
+            $(document).ready(function () {
                 configurarMoeda();
             });
         </script>
-            
-        
+
+
     </h:body>
 
 </html>

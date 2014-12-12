@@ -6,12 +6,12 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <ui:define name="titulo">Cadastro de Produto</ui:define>
+    <ui:define name="titulo">Cadastro de Pedidos</ui:define>
 
     <ui:define name="corpo">
         <h:form>
             <div id="pesq-produto" class="formulario">
-                <h1>Pesquisa de Produto</h1>
+                <h1>Pesquisa de Pedidos</h1>
                 <p:toolbar>
                     <p:toolbarGroup>
                         <p:button value="Pesquisar" />
@@ -25,39 +25,69 @@
 
 
                 <p:panelGrid columns="2" id="painel-cad-prod" style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
-                    <p:outputLabel value="SKU" for="sku" />
-                    <p:inputText id="sku" size="20" maxlength="20" class="label-media"/>
+                    <p:outputLabel value="Número"/>
+                    <h:panelGroup>
+                        <p:inputText size="10" />
+                        À
+                        <p:inputText size="10" />
+                    </h:panelGroup>
 
-                    <p:outputLabel value="Nome" for="nome" />
-                    <p:inputText id="nome" size="75" maxlength="80"/>               
+                    <p:outputLabel value="Data Criação"/>
+                    <h:panelGroup>
+                        <p:calendar size="10" pattern="dd/MM/yyyy"/>
+                        À
+                        <p:calendar size="10" pattern="dd/MM/yyyy"/>
+                    </h:panelGroup>
+
+                    <p:outputLabel value="Vendedor" for="vendedor" />
+                    <p:inputText id="vendedor" size="40"/>
+
+                    <p:outputLabel value="Cliente" for="cliente" />
+                    <p:inputText id="cliente" size="40"/> 
+
+                    <p:outputLabel value="Status"/>
+                    <p:selectManyCheckbox>
+                        <f:selectItem itemLabel="Orcamento"/>
+                        <f:selectItem itemLabel="Emitido"/>
+                        <f:selectItem itemLabel="Cancelado"/>                        
+                    </p:selectManyCheckbox>
                 </p:panelGrid>
                 
-                <p:dataTable id="produtosTable" value="#{produtoController.produtos}" var="produto" style="margin-top: 20px" emptyMessage="Nenhum produto encontrado" rows="10" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
-                    <p:column style="text-align: center; width: 100px" headerText="SKU">
-                        <h:outputText value="123"/>
+                <p:dataTable id="pedidos-table" value="#{pedidoController.pedidos}"
+                             var="pedido" style="margin-top: 5px" emptyMessage="Nenhum registro encontrado!"
+                             rows="8" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+                    <p:column headerText="Numero" style="text-align: center; width: 40px" >
+                        <h:outputText value="123456" />
                     </p:column>
                     
-                    <p:column headerText="Nome">
-                        <h:outputText value="Bolo de Morango"/>
+                    <p:column headerText="Cliente" style="width: 130px">
+                         <h:outputText value="MOISES JUVENAL DA SILVA" />
                     </p:column>
                     
-                    <p:column headerText="Categoria" style="width:  250px">
-                        <h:outputText value="Doces balas e chicletes"/>
+                    <p:column headerText="Vendedor" style="width: 130px">
+                        <h:outputText value="SIMAO PEDRO DA SILVA" />
                     </p:column>
                     
-                    <p:column headerText="Vlr Unitario" style="width: 120px">
-                        <h:outputText value="R$ 10,25"/>
+                    <p:column headerText="Data criaçao" style="width: 40px">
+                         <h:outputText value="01/01/2014" />
                     </p:column>
                     
-                    <p:column headerText="Estoque" style="width: 100px">
-                        <h:outputText value="150"/>
+                    <p:column headerText="Valor total" style="width: 60px">
+                         <h:outputText value="R$ 1.256,36" />
                     </p:column>
                     
-                    <p:column style="width: 100px; text-align: center">
+                    <p:column headerText="Status" style="width: 40px">
+                         <h:outputText value="ATIVO" />
+                    </p:column>
+                    
+                    <p:column headerText="Ação" style="text-align: center;width: 50px">
                         <p:button icon="ui-icon-pencil" title="Editar"/>
-                        <p:commandButton icon="ui-icon-trash" title="Excluir"/>
                     </p:column>
+                    
                 </p:dataTable>
+                
+
+
             </div>
         </h:form>
     </ui:define>
